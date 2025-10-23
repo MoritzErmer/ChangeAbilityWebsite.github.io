@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Projekte — ChangeAbility Green Lab</title>
+  <meta name="description" content="Projekte des ChangeAbility Green Lab: Initiativen, Open Day, Forschung und Mitmachen.">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <script>
+    // Diagnostic log to help debug why custom cursor isn't created in the user's browser.
+    (function(){
+      try{
+        console.log('diagnostic: projects.html loaded', location.href);
+        // try to fetch the custom-cursor.js to see if server serves it
+        fetch('/js/custom-cursor.js', {cache: 'no-store'})
+        .then(r=>{
+          console.log('diagnostic: fetch /js/custom-cursor.js status', r.status, r.type);
+          return r.text();
+        })
+        .then(text=>{
+          console.log('diagnostic: custom-cursor.js length', text.length);
+        })
+        .catch(err=>{
+          console.error('diagnostic: fetch error for custom-cursor.js', err);
+        });
+      }catch(e){console.error('diagnostic init error', e)}
+    })();
+  </script>
+  
+  <header class="site-header">
+    <div class="container header-grid">
+      <a href="/" class="logo"><img src="/assets/icons/logo.svg" alt="ChangeAbility" width="40" height="40"><span class="brand">ChangeAbility</span></a>
+      <button id="nav-open" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menü öffnen"><span class="hamburger" aria-hidden="true">☰</span></button>
+      <nav id="primary-nav" class="nav" aria-hidden="true">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">Über uns</a></li>
+          <li><a href="/projects.html" class="active" aria-current="page">Projekte</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Projekte im Green Lab</h1>
+    <p>Hier findest du eine Auswahl laufender Initiativen. Jede Projektseite ist als Open Project angelegt — Beiträge sind willkommen.</p>
+
+    <div class="tiles">
+      <section class="tile">
+        <h2>Upcycle Campus</h2>
+        <p>Reparatur- und Upcycling-Workshops für Studierende. Ziel: Abfall reduzieren und praktische Skills vermitteln.</p>
+        <div class="meta">Workshop · Praxis</div>
+        <a class="btn" href="#">Mehr</a>
+      </section>
+
+      <section class="tile">
+        <h2>Low-Energy Study Spaces</h2>
+        <p>Messungen und Software-Optimierung von Lernräumen zur Reduktion des Energieverbrauchs.</p>
+        <div class="meta">Messung · Forschung</div>
+        <a class="btn" href="#">Mehr</a>
+      </section>
+
+      <section class="tile">
+        <h2>Food-Waste Tracker</h2>
+        <p>Tool zur Erfassung und Visualisierung von Lebensmittelabfällen in der Mensa.</p>
+        <div class="meta">Tool · Visualisierung</div>
+        <a class="btn" href="#">Mehr</a>
+      </section>
+
+      <section class="tile">
+        <h2>Open Climate API</h2>
+        <p>APIs und Tutorials für Student*innen, die CO₂-Footprints mit Open Data berechnen wollen.</p>
+        <div class="meta">Open Data · API</div>
+        <a class="btn" href="#">Mehr</a>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year-footer"></span> ChangeAbility</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year-footer').textContent = new Date().getFullYear();
+  </script>
+  <script src="/js/custom-cursor.js" defer></script>
+  <script src="/js/lazyload.js" defer></script>
+  <script src="/js/main.js" defer></script>
+  <script>
+    // Post-load diagnostic: check presence and styles of cursor elements
+    (function(){
+      try{
+        const dots = document.querySelectorAll('.cursor-dot');
+        const rings = document.querySelectorAll('.cursor-ring');
+        console.log('diagnostic: cursor-dot count', dots.length, 'cursor-ring count', rings.length);
+        if(dots.length>0){
+          dots.forEach((d,i)=>{
+            const s = getComputedStyle(d);
+            console.log('diagnostic: dot['+i+'] styles', {display:s.display, opacity:s.opacity, width:s.width, height:s.height, transform:s.transform});
+          });
+        }
+        if(rings.length>0){
+          rings.forEach((r,i)=>{
+            const s = getComputedStyle(r);
+            console.log('diagnostic: ring['+i+'] styles', {display:s.display, opacity:s.opacity, width:s.width, height:s.height, border:s.border});
+          });
+        }
+      }catch(e){console.error('diagnostic cursor check error', e)}
+    })();
+  </script>
+</body>
+</html>

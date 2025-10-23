@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ChangeAbility — Nachhaltig. Technisch. Gemeinsam.</title>
+  <meta name="description" content="ChangeAbility: Studentisches Projekt zur Förderung nachhaltiger Lebensweisen. Green Lab, Workshops, Tools und Aktionen.">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preload" href="/assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a href="/" class="logo" aria-label="ChangeAbility Startseite">
+        <img src="/assets/icons/logo.svg" alt="ChangeAbility" width="40" height="40">
+        <span class="brand">ChangeAbility</span>
+      </a>
+
+      <button id="nav-open" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menü öffnen">
+        <span class="hamburger" aria-hidden="true">☰</span>
+      </button>
+
+      <nav id="primary-nav" class="nav" aria-hidden="true">
+        <ul>
+          <li><a href="/" class="active" aria-current="page">Home</a></li>
+          <li><a href="/about.html">Über uns</a></li>
+          <li><a href="/projects.html">Projekte</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="tiles container">
+      <section class="tile hero">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1>ChangeAbility — Für eine nachhaltigere Campus-Zukunft</h1>
+            <p class="lead">Wir sind Studierende, die Technik und Umweltschutz verbinden. Entdecke das Green Lab, Workshops und praktische Tools für den Alltag.</p>
+            <p class="cta-row">
+              <a class="btn primary" href="/projects.html"><span class="label">Zu den Projekten</span></a>
+              <a class="btn ghost" href="/about.html">Mehr über uns</a>
+            </p>
+            <div class="hero-callout glass">
+              <strong>Green Lab Open Day</strong>
+              <div class="muted">15. November — Workshops & Mitmach-Aktionen</div>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img class="rounded" src="/assets/images/hero.svg" alt="Illustration Green Lab" loading="lazy">
+          </div>
+        </div>
+      </section>
+
+      <section class="tile features">
+        <h2>Unsere Schwerpunkte</h2>
+        <div class="grid cols-3">
+          <article class="card">
+            <svg class="icon" aria-hidden="true"><use href="/assets/icons/leaf.svg#root"></use></svg>
+            <h3>Green Lab</h3>
+            <p>Kollaborativer Raum an der Uni für nachhaltige Experimente, Upcycling und Forschung.</p>
+          </article>
+          <article class="card">
+            <svg class="icon" aria-hidden="true"><use href="/assets/icons/lightbulb.svg#root"></use></svg>
+            <h3>Workshops</h3>
+            <p>Praktische Kurse: klimafreundliche Ernährung, Low-Tech-Reparaturen, energieeffiziente Apps.</p>
+          </article>
+          <article class="card">
+            <svg class="icon" aria-hidden="true"><use href="/assets/icons/code.svg#root"></use></svg>
+            <h3>Tools & Guides</h3>
+            <p>Digitale Werkzeuge zur CO₂-Schätzung, Checklisten und Implementierungs-Templates.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tile highlight">
+        <div class="highlight-card">
+          <h2>Dieses Semester: Green Lab Open Day</h2>
+          <p>Am 15. November öffnen wir das Green Lab für alle Studierenden — Mitmachen, Fragen stellen und Projekte starten.</p>
+          <a class="btn" href="/projects.html">Mehr erfahren</a>
+        </div>
+      </section>
+    </div>
+
+    <section id="contact" class="container contact">
+      <h2>Kontakt</h2>
+      <p>Schreib uns: <a href="mailto:changeability@example.edu">changeability@example.edu</a></p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>ChangeAbility</strong>
+        <p>Nachhaltigkeit × Technik — Universität</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/about.html">Über</a></li>
+          <li><a href="/projects.html">Projekte</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="copyright">© <span id="year"></span> ChangeAbility — Alle Rechte vorbehalten</div>
+  </footer>
+
+  <script src="/js/lazyload.js" defer></script>
+  <script src="/js/custom-cursor.js" defer></script>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

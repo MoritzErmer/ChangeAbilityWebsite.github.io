@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kontakt — ChangeAbility</title>
+  <meta name="description" content="Kontaktformular für das ChangeAbility Green Lab. Schreib uns!">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a href="/" class="logo"><img src="/assets/icons/logo.svg" alt="ChangeAbility" width="40" height="40"><span class="brand">ChangeAbility</span></a>
+      <button id="nav-open" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menü öffnen"><span class="hamburger" aria-hidden="true">☰</span></button>
+      <nav id="primary-nav" class="nav" aria-hidden="true">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">Über uns</a></li>
+          <li><a href="/projects.html">Projekte</a></li>
+          <li><a href="/kontakt.html" class="active" aria-current="page">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <h1>Kontakt</h1>
+    <p>Schreib uns — wir freuen uns auf deine Nachricht.</p>
+
+    <div class="tiles">
+      <section class="tile">
+        <h2>Kontaktformular</h2>
+        <form id="contact-form" class="contact-form" action="" method="get">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required placeholder="Dein Name">
+
+          <label for="email">E-Mail</label>
+          <input id="email" name="email" type="email" required placeholder="deine@adresse.de">
+
+          <label for="subject">Betreff</label>
+          <input id="subject" name="subject" type="text" required placeholder="Worum geht's?">
+
+          <label for="message">Nachricht</label>
+          <textarea id="message" name="message" rows="6" required placeholder="Deine Nachricht"></textarea>
+
+          <p class="muted">Hinweis: Dieses Formular öffnet dein Mailprogramm (mailto). Wenn du ein serverseitiges Formular möchtest, kann ich EmailJS / Formspree einbinden.</p>
+
+          <div style="display:flex;gap:.5rem;margin-top:.75rem">
+            <button type="submit" class="btn primary"><span class="label">Nachricht senden</span></button>
+            <a class="btn ghost" href="/">Abbrechen</a>
+          </div>
+        </form>
+      </section>
+
+      <aside class="tile">
+        <h2>Direkter Kontakt</h2>
+        <p>Alternativ schreib direkt an:</p>
+        <p><a href="mailto:moritzermerabos@gmail.com">moritzermerabos@gmail.com</a></p>
+        <p class="muted">Wir antworten in der Regel innerhalb von 2 Werktagen.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year-footer"></span> ChangeAbility</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year-footer').textContent = new Date().getFullYear();
+
+    // client-side mailto fallback: serialize form and open mail client
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const form = e.currentTarget;
+      const name = encodeURIComponent(form.name.value.trim());
+      const email = encodeURIComponent(form.email.value.trim());
+      const subject = encodeURIComponent(form.subject.value.trim());
+      const message = encodeURIComponent('Von: '+form.name.value+' (%3C'+form.email.value+'%3E)%0D%0A%0D%0A'+form.message.value);
+
+      // create mailto link
+      const to = 'moritzermerabos@gmail.com';
+      const mailto = `mailto:${to}?subject=${subject}&body=${message}`;
+
+      // open default mail client
+      window.location.href = mailto;
+    });
+  </script>
+
+  <script src="/js/custom-cursor.js" defer></script>
+  <script src="/js/lazyload.js" defer></script>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
