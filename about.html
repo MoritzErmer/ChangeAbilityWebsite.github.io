@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Über ChangeAbility</title>
+  <meta name="description" content="Über das ChangeAbility Projekt — Team, Ziele und Kontakt.">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a href="/" class="logo"><img src="/assets/icons/logo.svg" alt="ChangeAbility" width="40" height="40"><span class="brand">ChangeAbility</span></a>
+      <button id="nav-open" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menü öffnen"><span class="hamburger" aria-hidden="true">☰</span></button>
+      <nav id="primary-nav" class="nav" aria-hidden="true">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html" class="active" aria-current="page">Über uns</a></li>
+          <li><a href="/projects.html">Projekte</a></li>
+          <li><a href="/kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Über ChangeAbility</h1>
+    <p>ChangeAbility wurde von einer Gruppe engagierter Studierender gegründet. Unser Ziel ist es, eine offene, kollaborative Umgebung zu schaffen, in der Technik genutzt wird, um nachhaltige Lösungen auf dem Campus zu fördern.</p>
+
+    <div class="tiles">
+      <section class="tile">
+        <h2>Team</h2>
+        <div class="team grid cols-3">
+      <article class="card team-card">
+        <img src="/assets/images/person1.svg" alt="Teammitglied Alex" loading="lazy">
+        <div class="overlay">
+          <h3>Alex Müller</h3>
+          <p>Projektleitung — Energieoptimierung</p>
+        </div>
+      </article>
+      <article class="card team-card">
+        <img src="/assets/images/person2.svg" alt="Teammitglied Lea" loading="lazy">
+        <div class="overlay">
+          <h3>Lea Becker</h3>
+          <p>Green Lab Koordination</p>
+        </div>
+      </article>
+      <article class="card team-card">
+        <img src="/assets/images/person3.svg" alt="Teammitglied Samir" loading="lazy">
+        <div class="overlay">
+          <h3>Samir Khan</h3>
+          <p>Software & Tools</p>
+        </div>
+      </article>
+      <article class="card team-card">
+        <img src="/assets/images/person4.svg" alt="Teammitglied Nina" loading="lazy">
+        <div class="overlay">
+          <h3>Nina Hofmann</h3>
+          <p>Kommunikation & Outreach</p>
+        </div>
+      </article>
+      <article class="card team-card">
+        <img src="/assets/images/person5.svg" alt="Teammitglied Jonas" loading="lazy">
+        <div class="overlay">
+          <h3>Jonas Weber</h3>
+          <p>Hardware & Prototyping</p>
+        </div>
+      </article>
+      <article class="card team-card">
+        <img src="/assets/images/person6.svg" alt="Teammitglied Mara" loading="lazy">
+        <div class="overlay">
+          <h3>Mara Fischer</h3>
+          <p>Event-Organisation</p>
+        </div>
+      </article>
+        </div>
+      </section>
+
+      <section class="tile">
+        <h2>Unser Ansatz</h2>
+        <p>Wir kombinieren Forschung, Lehre und Praxis: Studierende entwickeln Prototypen im Green Lab, halten Workshops und veröffentlichen freie Tools.</p>
+      </section>
+
+      <aside class="tile">
+        <h2>Mitmachen & Kontakt</h2>
+        <p class="muted">Möchtest du mitmachen oder Fragen stellen? Schreib uns:</p>
+        <p><a href="mailto:changeability@example.edu">changeability@example.edu</a></p>
+  <p class="muted" style="margin-top:.5rem">Green Lab Open Day: 15. November — Workshops & Mitmach-Aktionen</p>
+      </aside>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year-footer"></span> ChangeAbility</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year-footer').textContent = new Date().getFullYear();
+  </script>
+  <script src="/js/custom-cursor.js" defer></script>
+  <script src="/js/lazyload.js" defer></script>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

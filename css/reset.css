@@ -1,0 +1,17 @@
+/* Simple modern reset */
+:root{box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,section{margin:0;padding:0;border:0}
+html,body{height:100%}
+body{line-height:1.4;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#fff;color:#0b1220}
+ol,ul{list-style:none}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+button{font:inherit}
+.container{max-width:1100px;margin:0 auto;padding:1rem}
+
+/* Utility grid */
+.grid{display:grid;gap:1rem}
+.cols-2{grid-template-columns:repeat(2,1fr)}
+.cols-3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:800px){.cols-3,.cols-2{grid-template-columns:1fr}}
