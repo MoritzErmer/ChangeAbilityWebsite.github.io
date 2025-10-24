@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="200" viewBox="0 0 480 200">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#FFF2E6"/>
+      <stop offset="1" stop-color="#FFE1C7"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="200" rx="16" fill="url(#g)"/>
+  <circle cx="80" cy="100" r="14" fill="#FFB580"/>
+  <circle cx="110" cy="100" r="14" fill="#FF9D5E"/>
+  <circle cx="95" cy="80" r="14" fill="#FF8A40"/>
+  <path d="M60 130 Q95 110 130 130" stroke="#FF8A40" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <text x="160" y="112" font-size="26" font-family="Arial, Helvetica, sans-serif" fill="#5C2C00" font-weight="700">Bürgerbeteiligung</text>
+</svg>

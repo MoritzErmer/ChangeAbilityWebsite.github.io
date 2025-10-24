@@ -1,5 +1,23 @@
 // Small interactive behaviors: mobile menu and year insert
 document.addEventListener('DOMContentLoaded',function(){
+  // Setze dynamisch die Header-Höhe als CSS-Variable, damit der Graph bis zum unteren Bildschirmrand passt
+  (function(){
+    const headerEl = document.querySelector('.site-header');
+    if(!headerEl) return;
+    const setHeaderVar = ()=>{
+      const h = Math.round(headerEl.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-h', h + 'px');
+    };
+    setHeaderVar();
+    // Beobachte Größenänderungen am Header robust (z. B. bei Wraps)
+    if('ResizeObserver' in window){
+      const ro = new ResizeObserver(setHeaderVar);
+      ro.observe(headerEl);
+    } else {
+      window.addEventListener('resize', setHeaderVar);
+      window.addEventListener('orientationchange', setHeaderVar);
+    }
+  })();
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.getElementById('primary-nav') || document.querySelector('.nav');
   if(toggle && nav){
@@ -56,6 +74,51 @@ document.addEventListener('DOMContentLoaded',function(){
   const y = new Date().getFullYear();
   const el = document.getElementById('year');
   if(el) el.textContent = String(y);
+
+  // Header-Menüband bleibt immer sichtbar; Header-Logo nur zeigen,
+  // wenn die Landing-Hero-Sektion NICHT im Viewport ist (1% genügt)
+  (function(){
+  const header = document.querySelector('.site-header');
+  const headerLogo = document.querySelector('.site-header .logo img');
+  const landingHero = document.querySelector('.landing-hero');
+  const landingGraph = document.querySelector('.landing-graph');
+  const landingLogo = document.querySelector('.landing-logo');
+    if(!header || !headerLogo){ return; }
+    // Wenn keine Landing vorhanden ist, Logo immer zeigen
+    if(!landingHero && !landingLogo){
+      header.classList.remove('hide-logo');
+      return;
+    }
+
+    const setHidden = (hidden)=> header.classList.toggle('hide-logo', !!hidden);
+
+    // Fallback-/Initial-Check per BoundingClientRect
+    const boundingVisible = (el)=>{
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      const vw = window.innerWidth || document.documentElement.clientWidth;
+      return r.bottom > 0 && r.right > 0 && r.top < vh && r.left < vw; // irgendein Teil sichtbar
+    };
+  const target = landingHero || landingGraph || landingLogo;
+    const checkNow = ()=> setHidden(boundingVisible(target));
+
+    // IntersectionObserver mit threshold 0 (jedes Pixel zählt)
+    if('IntersectionObserver' in window){
+      const io = new IntersectionObserver((entries)=>{
+        // Falls mehrere Einträge kommen, prüfe den für landingLogo
+        const entry = entries.find(e=> e.target === target) || entries[0];
+        setHidden(entry && entry.isIntersecting);
+      }, { root:null, threshold:0.01, rootMargin:'0px' });
+      io.observe(target);
+      // initialer Zustand
+      checkNow();
+    }else{
+      // Fallback ohne IO
+      checkNow();
+      window.addEventListener('scroll', checkNow, { passive:true });
+      window.addEventListener('resize', checkNow);
+    }
+  })();
 
   // Custom minimal circular cursor (disabled for touch and reduced-motion)
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -122,17 +185,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
   // small tilt/parallax on hero and project cards (desktop only) - softened for flow
   if(!(('ontouchstart' in window) || navigator.maxTouchPoints > 0)){
-    const hero = document.querySelector('.hero');
-    const media = document.querySelector('.hero-media img');
-    if(hero && media){
-      hero.addEventListener('mousemove', e=>{
-        const r = hero.getBoundingClientRect();
-        const px = (e.clientX - r.left) / r.width - 0.5; // -0.5..0.5
-        const py = (e.clientY - r.top) / r.height - 0.5;
-        media.style.transform = `translate(${px*6}px, ${py*-4}px) rotate(${px*1.2}deg)`;
-      });
-      hero.addEventListener('mouseleave', ()=> media.style.transform = '');
-    }
+    // (ehem.) Hero-Parallax: auf Landing nicht nötig, daher deaktiviert
 
     // project card tilt with softened intensity
     document.querySelectorAll('.projects-list .project').forEach(card=>{
